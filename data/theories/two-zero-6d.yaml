@@ -1,0 +1,282 @@
+id: two-zero-6d
+name: '6d $(2,0)$ theory of type $\mathfrak{g}$ (ADE)'
+aliases:
+  - 'Six-dimensional $\mathcal{N}=(2,0)$ SCFT'
+  - 'ADE $(2,0)$ theories'
+  - 'Interacting M5-brane theory ($A$ series)'
+d: 6
+summary: >-
+  Interacting six-dimensional superconformal theories with 16 Poincare
+  supercharges, labelled by a simple ADE Lie algebra. Their anomalies and
+  half-BPS operator dimensions are known exactly.
+tags: [CFT, SCFT, interacting, unitary, supersymmetric, non-Lagrangian, family]
+
+description: |
+  Here $\mathfrak{g}=A_{N-1}$ ($N\geq2$), $D_n$ ($n\geq4$), or
+  $E_6,E_7,E_8$ is simple. Write $r_{\mathfrak{g}}$, $d_{\mathfrak{g}}$,
+  $h^\vee_{\mathfrak{g}}$, and $W_{\mathfrak{g}}$ for its rank, dimension,
+  dual Coxeter number, and Weyl group. The ADE label specifies an interacting
+  six-dimensional fixed point.
+
+  The $A_{N-1}$ theory is the interacting sector of $N$ coincident M5-branes,
+  with the free center-of-mass tensor multiplet removed. All formulas below
+  refer to this interacting theory. See [Beem et al., section 1](https://arxiv.org/abs/1507.05637)
+  and [Ohmori et al., section 2.3](https://arxiv.org/abs/1408.5572).
+
+  ### Tensor branch and compactification
+  A generic tensor-branch vacuum has $r_{\mathfrak{g}}$ free abelian tensor
+  multiplets in the infrared. Each contains five real scalars, fermions,
+  and a self-dual two-form gauge field. There are no relevant or marginal
+  local deformations preserving all $(2,0)$ supersymmetry.
+
+  Untwisted circle reduction gives five-dimensional maximally supersymmetric
+  Yang-Mills theory with gauge algebra $\mathfrak{g}$ at low energies.
+  Reduction on a shrinking two-torus gives four-dimensional $\mathcal{N}=4$
+  Yang-Mills theory; its complexified coupling is the torus complex structure.
+  Global gauge-group and flux choices require additional discrete data.
+  See [Cordova, Dumitrescu and Yin, sections 1, 3 and 5](https://arxiv.org/abs/1505.03850)
+  and [Witten, sections 3-4](https://arxiv.org/abs/0905.2720).
+
+  ### Anomaly conventions
+  A superscript $\mathrm{tens}$ denotes one free $(2,0)$ tensor multiplet.
+  Ratios to its Weyl anomalies avoid conventions for the curvature invariants.
+  Set $c=4d_{\mathfrak{g}}h^\vee_{\mathfrak{g}}+r_{\mathfrak{g}}$; this is
+  $C_T/C_T^{\mathrm{tens}}$ and the central charge of the protected chiral
+  algebra, which describes a protected subsector of the six-dimensional SCFT.
+
+  For example, $(a/a^{\mathrm{tens}},c)$ equals $(103/7,25)$ for $A_1$,
+  $(15018/7,3750)$ for $E_6$, $(5479,9583)$ for $E_7$, and
+  $(119096/7,29768)$ for $E_8$.
+  See [Cordova, Dumitrescu and Yin, table 1](https://arxiv.org/abs/1505.03850)
+  and [Cordova, Dumitrescu and Intriligator, table 1](https://arxiv.org/abs/1912.13475).
+
+parameters:
+  - symbol: '\mathfrak{g}'
+    description: 'Simple simply-laced Lie algebra labelling the SCFT.'
+    range: '$A_{N-1}$ ($N\geq2$), $D_n$ ($n\geq4$), $E_6$, $E_7$, $E_8$'
+
+# The existing family table computes 2d c/gap data. Keep the general ADE
+# dependence in parameters and quantities rather than assigning 2d data here.
+
+symmetry:
+  spacetime: 'superconformal, $\mathfrak{osp}(8^*|4)$, with bosonic algebra $\mathfrak{so}(6,2)\oplus\mathfrak{so}(5)_R$'
+  supercharges: 16
+  global: '$\mathrm{Spin}(5)_R\simeq USp(4)_R$ R-symmetry'
+  notes: >-
+    There is no additional continuous flavor-current multiplet commuting with
+    all 16 supercharges (Cordova et al., arXiv:1612.00809, sections 5.1.4 and
+    5.7.2). The finite surface-defect charge group is listed below. When it is
+    nontrivial, the theory is relative and has a partition vector; specifying
+    an ordinary partition function requires extra global data (Del Zotto
+    et al., arXiv:1503.04806, sections 1-2).
+
+quantities:
+  - symbol: 'r_{\mathfrak{g}}'
+    description: 'Rank; number of free tensor multiplets at a generic tensor-branch point'
+    value: '\begin{cases}N-1&A_{N-1}\\n&D_n\\6&E_6\\7&E_7\\8&E_8\end{cases}'
+    method: exact
+    refs: [ohmori2014]
+    note: 'Lie-algebra data: table 2; tensor-branch interpretation: section 2.3.'
+  - symbol: 'd_{\mathfrak{g}}'
+    description: 'Dimension of the ADE Lie algebra'
+    value: '\begin{cases}N^2-1&A_{N-1}\\n(2n-1)&D_n\\78&E_6\\133&E_7\\248&E_8\end{cases}'
+    method: exact
+    refs: [ohmori2014]
+    note: 'Table 2.'
+  - symbol: 'h^\vee_{\mathfrak{g}}'
+    description: 'Dual Coxeter number'
+    value: '\begin{cases}N&A_{N-1}\\2n-2&D_n\\12&E_6\\18&E_7\\30&E_8\end{cases}'
+    method: exact
+    refs: [ohmori2014]
+    note: 'Table 2.'
+  - key: a
+    symbol: 'a/a^{\mathrm{tens}}'
+    description: 'Euler-density Weyl anomaly relative to one free tensor multiplet'
+    value: '\frac{16}{7}d_{\mathfrak{g}}h^\vee_{\mathfrak{g}}+r_{\mathfrak{g}}'
+    method: exact
+    refs: [cordova2015]
+    note: 'Equation (4.16). For $A_{N-1}$: $(16N^3-9N-7)/7$; for $D_n$: $(64n^3-96n^2+39n)/7$.'
+  - symbol: '\frac{c_1}{c_1^{\mathrm{tens}}}=\frac{c_2}{c_2^{\mathrm{tens}}}=\frac{c_3}{c_3^{\mathrm{tens}}}'
+    description: 'Three type-B Weyl anomalies, each divided by its free-tensor value'
+    value: '4d_{\mathfrak{g}}h^\vee_{\mathfrak{g}}+r_{\mathfrak{g}}'
+    method: exact
+    refs: [cordova2020]
+    note: 'Table 1. For $A_{N-1}$: $4N^3-3N-1$; for $D_n$: $16n^3-24n^2+9n$.'
+  - key: C_T
+    symbol: 'C_T'
+    description: 'Stress-tensor two-point coefficient'
+    value: '\frac{84}{\pi^6}\left(4d_{\mathfrak{g}}h^\vee_{\mathfrak{g}}+r_{\mathfrak{g}}\right)'
+    method: exact
+    refs: [cordova2020]
+    note: 'Equations (2.1)-(2.4): $\langle T_{\mu\nu}(x)T_{\rho\sigma}(0)\rangle=C_T\mathcal{I}_{\mu\nu,\rho\sigma}(x)/|x|^{12}$, with the standard symmetric-traceless inversion tensor. Thus $C_T^{\mathrm{tens}}=84/\pi^6$.'
+  - symbol: 'C_R/C_R^{\mathrm{tens}}'
+    description: 'R-current two-point coefficient relative to one free tensor multiplet'
+    value: '4d_{\mathfrak{g}}h^\vee_{\mathfrak{g}}+r_{\mathfrak{g}}'
+    method: exact
+    refs: [cordova2020]
+    note: 'Sections 3.1-3.2 and 5.1; the same R-symmetry generator normalization is used in numerator and denominator.'
+  - symbol: 'I_8[\mathfrak{g}]'
+    description: 'Local R-symmetry and gravitational anomaly polynomial'
+    value: '\frac{r_{\mathfrak{g}}}{48}\left[p_2(N)-p_2(T)+\frac{(p_1(T)-p_1(N))^2}{4}\right]+\frac{d_{\mathfrak{g}}h^\vee_{\mathfrak{g}}}{24}p_2(N)'
+    method: exact
+    refs: [ohmori2014]
+    note: 'Section 2.3, equation (35). $T$ is the tangent bundle, $N$ the rank-five $SO(5)_R$ vector bundle, and $p_i$ are Pontryagin classes. This polynomial describes local anomalies.'
+  - symbol: '(\alpha,\beta,\gamma,\delta)'
+    description: 'Anomaly coefficients after choosing a $(1,0)$ subalgebra'
+    value: '\left(d_{\mathfrak{g}}h^\vee_{\mathfrak{g}}+r_{\mathfrak{g}},\frac{r_{\mathfrak{g}}}{2},\frac{r_{\mathfrak{g}}}{8},-\frac{r_{\mathfrak{g}}}{2}\right)'
+    method: exact
+    refs: [cordova2020]
+    note: 'Table 2: $I_8=\frac1{24}[\alpha c_2(R)^2+\beta c_2(R)p_1(T)+\gamma p_1(T)^2+\delta p_2(T)]$ with other backgrounds off; here $R$ is the $(1,0)$ $SU(2)_R$ bundle.'
+  - symbol: '\mathcal{M}_{\mathfrak{g}}'
+    description: 'Tensor-branch moduli space of vacua'
+    value: '(\mathbb{R}^5)^{r_{\mathfrak{g}}}/W_{\mathfrak{g}}'
+    method: exact
+    refs: [beem2014]
+    note: 'Equation (4.1); the Weyl group acts diagonally on the five Cartan-valued scalars.'
+  - symbol: '\dim_{\mathbb{R}}\mathcal{M}_{\mathfrak{g}}'
+    description: 'Real dimension of the tensor branch'
+    value: '5r_{\mathfrak{g}}'
+    method: derived
+    refs: [beem2014]
+    note: 'From equation (4.1).'
+  - symbol: '\{k_i\}_{i=1}^{r_{\mathfrak{g}}}'
+    description: 'Casimir degrees labelling the independent half-BPS ring generators'
+    value: '\begin{cases}2,3,\ldots,N&A_{N-1}\\2,4,\ldots,2n-2;\ n&D_n\\2,5,6,8,9,12&E_6\\2,6,8,10,12,14,18&E_7\\2,8,12,14,18,20,24,30&E_8\end{cases}'
+    method: exact
+    refs: [beem2014, beem2015]
+    note: 'One generator per Casimir invariant. For even $n$, $D_n$ has two distinct generators of degree $n$; keep both occurrences. Their dimensions are $2k_i$.'
+  - symbol: 'H_{1/2}(t)'
+    description: 'Hilbert series of highest-weight half-BPS ring elements, graded by scaling dimension'
+    value: '\prod_{i=1}^{r_{\mathfrak{g}}}\frac{1}{1-t^{2k_i}}'
+    method: derived
+    refs: [beem2014]
+    note: 'From the freely generated ring in section 4. Counts R-symmetry highest weights, including products and the identity; excludes spacetime descendants.'
+  - symbol: 'c_{\mathrm{2d}}'
+    description: 'Central charge of the protected two-dimensional chiral algebra'
+    value: '4d_{\mathfrak{g}}h^\vee_{\mathfrak{g}}+r_{\mathfrak{g}}'
+    method: exact
+    refs: [beem2014, cordova2020]
+    note: 'Equation (3.11) of Beem et al. relates this to the 6d Weyl anomaly; use the exact anomalies in table 1 of Cordova et al.'
+  - symbol: '\lambda^2_{\Phi\Phi\,\mathcal{D}[4,0]}'
+    description: 'Protected squared OPE coefficient in the stress-tensor-primary OPE'
+    value: '2+\frac{44}{5\left(4d_{\mathfrak{g}}h^\vee_{\mathfrak{g}}+r_{\mathfrak{g}}\right)}'
+    method: exact
+    refs: [beem2015]
+    note: 'Set $\ell=0$ in equation (4.9): $b_0=2+44/(5c)$. Uses that paper''s unit-normalized external $\Phi$ and superconformal blocks. If several $\mathcal{D}[4,0]$ multiplets occur, this is the sum of squared coefficients, not an individual coupling.'
+  - symbol: '\mathcal{C}_{\mathfrak{g}}=\Lambda_{\mathrm{weight}}/\Lambda_{\mathrm{root}}'
+    description: 'Finite surface-defect charge group; center of the simply connected ADE group'
+    value: '\begin{cases}\mathbb{Z}_N&A_{N-1}\\\mathbb{Z}_2\times\mathbb{Z}_2&D_n,\ n\ \mathrm{even}\\\mathbb{Z}_4&D_n,\ n\ \mathrm{odd}\\\mathbb{Z}_3&E_6\\\mathbb{Z}_2&E_7\\\{0\}&E_8\end{cases}'
+    method: exact
+    refs: [delzotto2015]
+    note: 'Equation (4.3). Unscreened surface-defect charges; global choices are needed to turn the relative theory into a choice of partition function.'
+
+operators:
+  - name: '\Phi^{IJ}'
+    Delta: '4'
+    spin: 0
+    rep: '$\mathbf{14}$ of $\mathfrak{so}(5)_R$ (rank-two symmetric traceless tensor)'
+    method: exact
+    refs: [beem2015]
+    note: 'Half-BPS superconformal primary of the stress-tensor multiplet $\mathcal{D}[2,0]$; corresponds to the quadratic Casimir (sections 1-2).'
+  - name: '\mathcal{O}_i\quad(k_i>2)'
+    Delta: '2k_i'
+    spin: 0
+    rep: 'Rank-$k_i$ symmetric traceless tensor of $\mathfrak{so}(5)_R$'
+    method: exact
+    refs: [beem2014, beem2015]
+    note: 'Remaining independent half-BPS ring generators, one per Casimir of degree $k_i>2$. This row is empty for $A_1$; the $k_i=2$ generator is $\Phi$ above.'
+  - name: '(\Phi\Phi)_{\mathrm{ST}^4}'
+    Delta: '8'
+    spin: 0
+    rep: 'Rank-four symmetric traceless tensor of $\mathfrak{so}(5)_R$'
+    method: exact
+    refs: [beem2015]
+    note: 'Half-BPS product in the ring, in a $\mathcal{D}[4,0]$ multiplet. It exists even when there is no independent quartic Casimir; do not count it as an additional ring generator.'
+  - name: 'J_\mu^{[IJ]}'
+    Delta: '5'
+    spin: 1
+    rep: '$\mathbf{10}$ (adjoint) of $\mathfrak{so}(5)_R$'
+    method: exact
+    refs: [cordova2016]
+    note: 'Conserved R-symmetry currents in the stress-tensor multiplet, section 5.7.2.'
+  - name: 'S_{\mu\alpha}^{a}'
+    Delta: '11/2'
+    spin: '3/2'
+    rep: '$\mathbf{4}$ (spinor) of $\mathfrak{so}(5)_R$'
+    method: exact
+    refs: [cordova2016]
+    note: 'Conserved supersymmetry currents; gamma-traceless vector-spinors, in the stress-tensor multiplet, section 5.7.2.'
+  - name: 'T_{\mu\nu}'
+    Delta: '6'
+    spin: 2
+    rep: 'R-symmetry singlet'
+    method: exact
+    refs: [cordova2016]
+    note: 'Conserved symmetric traceless stress tensor, section 5.7.2.'
+
+relations:
+  - type: related_to
+    target: n4-sym
+    note: 'For $\mathfrak{g}=A_{N-1}$, untwisted compactification on a shrinking two-torus gives 4d $\mathcal{N}=4$ SYM with gauge algebra $\mathfrak{su}(N)$ and coupling equal to the torus complex structure. The global gauge group requires discrete choices (Witten, arXiv:0905.2720, sections 3-4; Cordova et al., arXiv:1505.03850, section 5).'
+
+references:
+  - key: ohmori2014
+    title: Anomaly polynomial of general 6d SCFTs
+    authors: Ohmori, Shimizu, Tachikawa, Yonekura
+    year: 2014
+    journal: PTEP 2014, 103B07
+    arxiv: '1408.5572'
+    doi: '10.1093/ptep/ptu140'
+    note: 'Section 2.3: anomaly polynomial and free-tensor subtraction; table 2: Lie-algebra constants.'
+  - key: cordova2015
+    title: Higher Derivative Terms, Toroidal Compactification, and Weyl Anomalies in Six-Dimensional (2,0) Theories
+    authors: Cordova, Dumitrescu, Yin
+    year: 2015
+    arxiv: '1505.03850'
+    note: 'Sections 1, 3-5: tensor branch, compactification, exact a-anomaly. The c-anomaly is cited to the later derivation below.'
+  - key: cordova2020
+    title: '$\mathcal{N}=(1,0)$ anomaly multiplet relations in six dimensions'
+    authors: Cordova, Dumitrescu, Intriligator
+    year: 2020
+    journal: JHEP 07 (2020) 065
+    arxiv: '1912.13475'
+    doi: '10.1007/JHEP07(2020)065'
+    note: 'Tables 1-2 and sections 2-3, 5.1: exact Weyl anomalies, two-point normalizations, and anomaly coefficients.'
+  - key: beem2014
+    title: '$\mathcal{W}$ symmetry in six dimensions'
+    authors: Beem, Rastelli, van Rees
+    year: 2015
+    journal: JHEP 05 (2015) 017
+    arxiv: '1404.1079'
+    doi: '10.1007/JHEP05(2015)017'
+    note: 'Protected chiral sector, tensor-branch geometry, and half-BPS ring. The full $\mathcal{W}_{\mathfrak{g}}$ identification is conjectural in this paper and is not used here.'
+  - key: beem2015
+    title: 'The $(2,0)$ superconformal bootstrap'
+    authors: Beem, Lemos, Rastelli, van Rees
+    year: 2016
+    journal: Phys. Rev. D93, 025016
+    arxiv: '1507.05637'
+    doi: '10.1103/PhysRevD.93.025016'
+    note: 'Sections 1-2: protected operators; equation (4.9): exact protected OPE data. Numerical estimates for unprotected operators are not included.'
+  - key: cordova2016
+    title: Multiplets of Superconformal Symmetry in Diverse Dimensions
+    authors: Cordova, Dumitrescu, Intriligator
+    year: 2016
+    arxiv: '1612.00809'
+    note: 'Sections 5.1.4 and 5.7.2: absence of independent flavor currents and the 6d $(2,0)$ stress-tensor multiplet.'
+  - key: delzotto2015
+    title: On the Defect Group of a 6D SCFT
+    authors: Del Zotto, Heckman, Park, Rudelius
+    year: 2016
+    journal: Lett. Math. Phys. 106, 765
+    arxiv: '1503.04806'
+    doi: '10.1007/s11005-016-0839-5'
+    note: 'Sections 1-2 and equation (4.3): relative theories and ADE surface-defect charge groups.'
+  - key: witten2009
+    title: Geometric Langlands From Six Dimensions
+    authors: Witten
+    year: 2009
+    arxiv: '0905.2720'
+    note: 'Sections 3-4: torus compactification, the complexified gauge coupling, and global choices.'
+
+contributors: [Pibom]
