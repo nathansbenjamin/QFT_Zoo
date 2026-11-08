@@ -1,0 +1,56 @@
+# Standard three-point structures: the few that the literature agrees on, so that a value of a three-point function may
+# name one by id (`structure: scalar`) without defining it in its entry. Anything a paper defines by its own choice (a
+# block normalization, a basis of spinning structures, a normalization of a tensor of the global symmetry) is not
+# standard: define it in the entry's `three_point_structures`, in the source's notation. See docs/THREE_POINT.md.
+#
+#   id           what values write in `structure:`
+#   symbol       the usual symbol of the coefficient
+#   name         a short name everyone will understand
+#   description  [markdown] the definition
+#   default      true for the structure a reader assumes when none is named: its values carry no label on the page
+#   spins        spins of the three operators it is defined for (checked against the entry's operators table)
+#   d            spacetime dimension, if it is defined in one only (checked)
+#   basis        shared by the elements of one basis of several independent structures
+#   relation     [markdown] relations that follow from the definition
+#   embedding    [latex] the three-point function in embedding space, in the notation of Costa, Penedones, Poland and
+#                Rychkov, "Spinning Conformal Correlators" (key costa2011; docs/THREE_POINT.md 1.4), for a structure that is a
+#                simple embedding-space structure. A standard structure that cites a reference key in any field needs
+#                that key in the references of every entry that uses it (the build checks it).
+
+structures:
+  - id: 'scalar'
+    symbol: '\lambda'
+    name: '$1$'
+    default: true
+    spins: [0, 0, 0]
+    form: '\langle O_1(x_1)\,O_2(x_2)\,O_3(x_3)\rangle = \frac{\lambda_{123}}{x_{12}^{\Delta_1+\Delta_2-\Delta_3}\,x_{13}^{\Delta_1+\Delta_3-\Delta_2}\,x_{23}^{\Delta_2+\Delta_3-\Delta_1}}'
+    embedding: '\langle O_1(P_1)\,O_2(P_2)\,O_3(P_3)\rangle = \frac{\lambda_{123}}{P_{12}^{\frac{\Delta_1+\Delta_2-\Delta_3}{2}}\,P_{23}^{\frac{\Delta_2+\Delta_3-\Delta_1}{2}}\,P_{31}^{\frac{\Delta_3+\Delta_1-\Delta_2}{2}}}'
+    description: 'Unit-normalized scalars, $\langle O_i(x)\,O_i(0)\rangle = |x|^{-2\Delta_i}$.'
+    derivation: 'Three scalars $O_1, O_2, O_3$ that are singlets of any continuous global symmetry, with unit-normalized two-point functions $\langle O_i(x) O_i(0)\rangle = |x|^{-2\Delta_i}$: $\langle O_1(x_1) O_2(x_2) O_3(x_3)\rangle = \lambda_{123}\, |x_{12}|^{\Delta_3-\Delta_1-\Delta_2}|x_{13}|^{\Delta_2-\Delta_1-\Delta_3}|x_{23}|^{\Delta_1-\Delta_2-\Delta_3}$. In 2d it is often written $C_{123}$. The sign of $\lambda$ depends on the signs chosen for the operators. In embedding space it is the scalar three-point function of [@costa2011, Eq. (2.8)] with $\lambda_{123}$ as its constant, where $P_{ij} \equiv -2P_i\cdot P_j$ [@costa2011, Eq. (2.9)] becomes $x_{ij}^2$ on the Poincaré section [@costa2011, Eq. (2.10)].'
+  - id: 'vector-vector-singlet'
+    symbol: '\lambda'
+    name: '$\delta_{ij}$'
+    default: true
+    spins: [0, 0, 0]
+    form: '\langle \phi_i(x_1)\,\phi_j(x_2)\,s(x_3)\rangle = \frac{\lambda_{\phi\phi s}\,\delta_{ij}}{x_{12}^{2\Delta_\phi-\Delta_s}\,x_{23}^{\Delta_s}\,x_{31}^{\Delta_s}}'
+    embedding: '\langle \phi_i(P_1)\,\phi_j(P_2)\,s(P_3)\rangle = \frac{\lambda_{\phi\phi s}\,\delta_{ij}}{P_{12}^{\frac{2\Delta_\phi-\Delta_s}{2}}\,(P_{23}P_{31})^{\frac{\Delta_s}{2}}}'
+    description: '$\langle \phi_i(x)\,\phi_j(0)\rangle = \delta_{ij}\,|x|^{-2\Delta_\phi}$, $s$ unit-normalized.'
+    derivation: 'Two scalars $\phi_i$ in the vector of $O(N)$ and a singlet scalar $s$, with $\langle \phi_i(x)\phi_j(0)\rangle = \delta_{ij}|x|^{-2\Delta_\phi}$ and $s$ unit-normalized: $\langle\phi_i\phi_j s\rangle = \lambda_{\phi\phi s}\,\delta_{ij}$ times the three-scalar structure [@costa2011, Eq. (2.8)].'
+  - id: 'ttt-free-boson-3d'
+    symbol: 'n_B'
+    name: '$\langle TTT\rangle_B$'
+    spins: [2, 2, 2]
+    d: 3
+    basis: 'ttt-free-3d'
+    description: 'The $\langle TTT\rangle$ of one free real scalar, $T$ normalized by the Ward identity; $\langle TTT\rangle = n_B\langle TTT\rangle_B + n_F\langle TTT\rangle_F$.'
+    relation: '$n_B + n_F = C_T/C_T^{\rm free}$.'
+    derivation: 'The parity-even stress-tensor three-point function of a 3d CFT is a combination of two structures, $\langle TTT\rangle = n_B\langle TTT\rangle_B + n_F\langle TTT\rangle_F$, where $\langle TTT\rangle_B$ is that of one free real scalar and $\langle TTT\rangle_F$ that of one free Majorana fermion (each with its own $T$ normalized by the Ward identity). $n_B$ is the coefficient of the free-scalar structure. $n_B + n_F = C_T/C_T^{\rm free}$, with $C_T^{\rm free}$ that of one free real scalar (equal to that of one Majorana fermion in 3d).'
+  - id: 'ttt-free-fermion-3d'
+    symbol: 'n_F'
+    name: '$\langle TTT\rangle_F$'
+    spins: [2, 2, 2]
+    d: 3
+    basis: 'ttt-free-3d'
+    description: 'The $\langle TTT\rangle$ of one free Majorana fermion, $T$ normalized by the Ward identity.'
+    relation: '$n_B + n_F = C_T/C_T^{\rm free}$.'
+    derivation: 'The coefficient of the free-Majorana-fermion structure $\langle TTT\rangle_F$ in $\langle TTT\rangle = n_B\langle TTT\rangle_B + n_F\langle TTT\rangle_F$ (see the free-boson structure). $n_B + n_F = C_T/C_T^{\rm free}$.'

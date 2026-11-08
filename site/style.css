@@ -160,6 +160,15 @@ table.ops .num { padding-left: 4px; padding-right: 4px; }
    the sector heading, at the top of the note. */
 .op-role { color: var(--muted); font-size: 0.88em; }
 .op-role.nowrap { white-space: nowrap; }
+/* A label with a second notation on hover (data-hover): dotted underline, instant tooltip. */
+.hover-label { border-bottom: 1px dotted currentColor; cursor: help; }
+.op-role .hover-label { display: inline-block; }
+.hover-label:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.hover-tip {
+  position: fixed; z-index: 20; max-width: 360px; padding: 4px 9px; font-size: 0.85rem; pointer-events: none;
+  background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+}
 .op-rep { color: var(--muted); font-size: 0.88em; }
 .op-rep:not(:last-child) { margin-bottom: 2px; }
 /* Structured entries: each group heading folds its group; the count of operators follows the heading. */
@@ -193,7 +202,11 @@ table.qty .dets, table.ops .dets { font-size: 0.82rem; white-space: nowrap; }
 .ope-structures ul { margin: 0; padding-left: 18px; }
 .ope-structures li { margin: 2px 0; border-radius: 3px; }
 .ope-structures li.flash { animation: flash 1.6s ease-out; }
+.ope-structures .ope-embedding { overflow-x: auto; overflow-y: hidden; margin: 2px 0; }
+.ope-structures .ope-embedding .katex-display { margin: 4px 0; text-align: left; }
+.ope-structures .ope-embedding .katex-display > .katex { text-align: left; }
 table.qty .ope-st { white-space: nowrap; }
+table.qty .value-of { white-space: nowrap; }
 /* A triplet with several coefficients (n_B, n_F of <TTT>) is one item: its lines are separated by a dotted rule only. */
 table.qty tbody.ope-item td { border-bottom: 0; }
 table.qty tbody.ope-item { border-bottom: 1px solid var(--border); }
@@ -467,3 +480,7 @@ table.methods tr { scroll-margin-top: 80px; }
 .method-uses summary { cursor: pointer; white-space: nowrap; }
 .method-uses[open] { min-width: 200px; }
 .method-link + .method-link { margin-top: 6px; }
+.ope-structures li { margin: 2px 0; }
+.ope-st-more { display: inline; }
+.ope-st-more summary { display: inline; cursor: pointer; color: var(--accent); font-size: 0.9em; }
+.ope-st-more[open] { display: block; margin: 2px 0 6px; color: var(--muted); }

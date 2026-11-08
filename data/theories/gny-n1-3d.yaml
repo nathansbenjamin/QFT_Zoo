@@ -33,6 +33,7 @@ symmetry:
   global: 'time reversal / parity ($\sigma$ odd)'
   parity: true
   global_group: []
+  notes: 'Multiplets are named descriptively (long; stress-tensor multiplet), as the 3d $\mathcal{N}=1$ literature does; the label of Cordova, Dumitrescu and Intriligator [@cdi2016] is shown on hover.'
 
 quantities:
   - symbol: '\eta_\sigma = \eta_\psi'
@@ -57,7 +58,7 @@ quantities:
     refs: [atanasov2022]
     category: ope
 
-ope_coefficients:
+three_point_functions:
   - operators: ['\sigma', '\sigma', '\epsilon']
     values:
       - structure: scalar
@@ -71,14 +72,14 @@ operators:
     Delta: '0.5844435(83)'
     spin: 0
     parity: odd
-    multiplet: {name: '$\sigma$', component: primary}
+    multiplet: {name: '$\sigma$', component: primary, type: long, cdi: '$L[0]_\Delta$'}
     method: CB
     refs: [atanasov2022]
   - name: '\psi'
     Delta: '1.0844435(83)'
     spin: '1/2'
     parity: unknown
-    multiplet: {name: '$\sigma$', component: Q}
+    multiplet: {name: '$\sigma$', component: Q, type: long, cdi: '$L[0]_\Delta$'}
     method: CB, from Δσ
     refs: [atanasov2022]
     note: '$\Delta_\psi = \Delta_\sigma + \tfrac12$ by supersymmetry.'
@@ -86,7 +87,7 @@ operators:
     Delta: '1.5844435(83)'
     spin: 0
     parity: even
-    multiplet: {name: '$\sigma$', component: 'Q^2'}
+    multiplet: {name: '$\sigma$', component: 'Q^2', type: long, cdi: '$L[0]_\Delta$'}
     method: CB, from Δσ
     refs: [atanasov2022]
     note: '$\Delta_\epsilon = \Delta_\sigma + 1$ by supersymmetry. The only relevant parity-even scalar (the tuning parameter).'
@@ -94,14 +95,14 @@ operators:
     Delta: '2.8869(25)'
     spin: 0
     parity: odd
-    multiplet: {name: '$\sigma''$', component: primary}
+    multiplet: {name: '$\sigma''$', component: primary, type: long, cdi: '$L[0]_\Delta$'}
     method: CB
     refs: [atanasov2022]
   - name: '\epsilon'''
     Delta: '3.8869(25)'
     spin: 0
     parity: even
-    multiplet: {name: '$\sigma''$', component: 'Q^2'}
+    multiplet: {name: '$\sigma''$', component: 'Q^2', type: long, cdi: '$L[0]_\Delta$'}
     method: CB, from Δσ′
     refs: [atanasov2022]
     note: '$\Delta_{\epsilon''} = \Delta_{\sigma''} + 1$ by supersymmetry.'
@@ -110,13 +111,13 @@ operators:
     spin: '3/2'
     parity: unknown
     role: supercurrent
-    multiplet: {name: stress tensor, component: primary}
+    multiplet: {name: stress tensor, component: primary, cdi: '$A_1[3]_{5/2}$'}
     method: exact
   - name: 'T_{\mu\nu}'
     Delta: 3
     spin: 2
     parity: even
-    multiplet: {name: stress tensor, component: Q}
+    multiplet: {name: stress tensor, component: Q, cdi: '$A_1[3]_{5/2}$'}
     method: exact
     note: Stress tensor, in the same multiplet as the supercurrent.
 
@@ -154,5 +155,20 @@ references:
     authors: Iliesiu, Kos, Poland, Pufu, Simmons-Duffin
     year: 2017
     arxiv: '1705.03484'
+  - key: costa2011
+    title: Spinning Conformal Correlators
+    authors: Costa, Penedones, Poland, Rychkov
+    year: 2011
+    journal: JHEP 11 (2011) 071
+    arxiv: '1107.3554'
+    doi: '10.1007/JHEP11(2011)071'
+    note: 'The embedding-space notation of the OPE structures: $P_{ij}$, Eq. (2.9); $V_{i,jk}$, $H_{ij}$, Eqs. (4.14)–(4.16). Locators refer to arXiv v3, whose printed page numbers are 1 less than the PDF''s.'
+  - key: cdi2016
+    title: Multiplets of Superconformal Symmetry in Diverse Dimensions
+    authors: Cordova, Dumitrescu, Intriligator
+    year: 2016
+    journal: JHEP 03 (2019) 163
+    arxiv: '1612.00809'
+    doi: 10.1007/JHEP03(2019)163
 
 contributors: [nathansbenjamin]

@@ -39,17 +39,19 @@ quantities:
     method: exact
     refs: [bpz1984]
   - symbol: '\eta'
-    description: Critical exponent
+    description: Anomalous dimension of the spin field
+    relation: '\eta = 2\Delta_\sigma'
     value: '\frac{1}{4}'
     method: exact
     refs: [onsager1944]
   - symbol: '\nu'
-    description: Critical exponent
+    description: Correlation-length exponent
+    relation: '\nu = 1/(2-\Delta_\epsilon)'
     value: '1'
     method: exact
     refs: [onsager1944]
 
-ope_coefficients:
+three_point_functions:
   - operators: ['\sigma', '\sigma', '\epsilon']
     values:
       - structure: scalar
@@ -104,5 +106,13 @@ references:
     year: 1984
     journal: Nucl. Phys. B241, 333
     doi: 10.1016/0550-3213(84)90052-X
+  - key: costa2011
+    title: Spinning Conformal Correlators
+    authors: Costa, Penedones, Poland, Rychkov
+    year: 2011
+    journal: JHEP 11 (2011) 071
+    arxiv: '1107.3554'
+    doi: '10.1007/JHEP11(2011)071'
+    note: 'The embedding-space notation of the OPE structures: $P_{ij}$, Eq. (2.9); $V_{i,jk}$, $H_{ij}$, Eqs. (4.14)–(4.16). Locators refer to arXiv v3, whose printed page numbers are 1 less than the PDF''s.'
 
 contributors: [nathansbenjamin]

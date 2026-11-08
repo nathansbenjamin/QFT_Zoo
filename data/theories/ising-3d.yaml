@@ -108,24 +108,30 @@ quantities:
     method: ε-exp, 6 loops, resummed
     refs: ['kompaniets2017, Eq. (42), p. 25', 'kompaniets2017, Table XI ($n=1$)']
 
-ope_structures:
-  # Bases of spinning structures chosen by the sources (docs/OPE.md); the scalar values use the standard `scalar`.
-  - id: sd16
+three_point_structures:
+  - id: 'sd16'
     symbol: 'f'
-    ref: 'simmonsduffin2016, Eq. (A.16)'
-    description: 'Scalar–scalar–spin-$\ell$ structure $\langle\phi_1\phi_2 O_{\Delta,\ell}\rangle$, external scalars unit-normalized, with conformal blocks normalized as in [@simmonsduffin2016, Eq. (A.16)], so that they start as $z^{(\Delta-\ell)/2}\bar z^{(\Delta+\ell)/2}$. At $\ell = 0$ it is the three-scalar $\lambda$. In this normalization the Ward identity gives $f_{\sigma\sigma T}/f_{\epsilon\epsilon T} = \Delta_\sigma/\Delta_\epsilon$ and $f_{\phi\phi T}^2 = \frac{3}{8}\Delta_\phi^2\, C_T^{\rm free}/C_T$ (free scalar: $3/32$). The sign depends on the order of the two external operators: $f_{43O} = (-1)^\ell f_{34O}$ [@simmonsduffin2016, p. 71].'
-    relation: 'Other papers normalize spinning blocks differently, by spin-dependent factors [@simmonsduffin2016, Eq. (A.17)].'
-  - id: reehorst2021
+    name: '$2^{\ell/2}\,V_3^\ell$'
+    ref: 'simmonsduffin2016'
+    form: '\langle\phi_1(P_1)\,\phi_2(P_2)\,O(P_3,Z_3)\rangle = \lambda\,\frac{2^{\ell/2}\,V_3^{\,\ell}}{P_{12}^{\frac{\Delta_1+\Delta_2-\Delta-\ell}{2}}\,P_{13}^{\frac{\Delta_1+\Delta+\ell-\Delta_2}{2}}\,P_{23}^{\frac{\Delta_2+\Delta+\ell-\Delta_1}{2}}}'
+    description: 'Unit-normalized operators; $V_3 \equiv V_{3,12}$ of [@costa2011, Eq. (4.11)].'
+    derivation: 'The scalar–scalar–spin-$\ell$ structure of $\langle\phi_1\phi_2 O_{\Delta,\ell}\rangle$, external scalars unit-normalized, with its coefficient normalized by the conformal blocks, as the source defines it: in the conformal block expansion of $\langle\phi_1\phi_2\phi_3\phi_4\rangle$ the exchange of $O$ contributes $\lambda_{12O}\lambda_{43O}\,G^{r,s}_{h,\bar h}(z,\bar z)$, with $h = \frac{\Delta-\ell}{2}$, $\bar h = \frac{\Delta+\ell}{2}$, $r = \frac{\Delta_{12}}{2}$, $s = \frac{\Delta_{34}}{2}$, and the blocks start as $z^h\bar z^{\bar h}$ [@simmonsduffin2016, Eq. (A.16), p. 71] (the source writes the coefficient $f$ and does not write the three-point function itself). At $\ell = 0$ it is the three-scalar structure. In this normalization the Ward identity gives $\lambda_{\sigma\sigma T}/\lambda_{\epsilon\epsilon T} = \Delta_\sigma/\Delta_\epsilon$ and $\lambda_{\phi\phi T}^2 = \frac{3}{8}\Delta_\phi^2\, C_T^{\rm free}/C_T$ (free scalar: $3/32$). The sign depends on the order of the two external operators: $\lambda_{43O} = (-1)^\ell \lambda_{34O}$ [@simmonsduffin2016, p. 71]. In embedding space (derived below, not written in the source) it is $2^{\ell/2}$ times the scalar–scalar–spin-$\ell$ structure $V_{3,12}^\ell$ [@costa2011, Sec. 4.2.1, Eqs. (4.10)–(4.12)], with $P_{ij} \equiv -2P_i\cdot P_j$ [@costa2011, Eq. (2.9)] and $O$ unit-normalized as $\langle O(P_1,Z_1)\,O(P_2,Z_2)\rangle = H_{12}^\ell/P_{12}^{\Delta+\ell}$ [@costa2011, Eqs. (4.9), (4.15)]. A coefficient in this structure is $2^{-\ell/2}$ times the coefficient of the same three-point function in the structure $[(Z_{123}\cdot\zeta)^\ell - \text{traces}]K_3$ of [@poland2019, Eqs. (22)–(24)] ($V_{3,12}^\ell$ in embedding space). Other papers normalize spinning blocks differently, by spin-dependent factors [@simmonsduffin2016, Eq. (A.17)]. Why $2^{-\ell/2}$: on the Poincaré section $V_{3,12}^\ell$ with unit-normalized operators becomes the structure of [@poland2019, Eqs. (22)–(24)] [@costa2011, Eqs. (4.30), (4.37)]; the exchange of $O$ contributes to the four-point function the product of the two coefficients in that structure times blocks that start as $(-\frac{1}{2})^\ell z^h\bar z^{\bar h}$ [@poland2019, Eqs. (52), (54)] (ordered $12O$, $34O$), and the product of the two coefficients in this structure (ordered $12O$, $43O$) times blocks that start as $z^h\bar z^{\bar h}$ [@simmonsduffin2016, Eq. (A.16)] ($2^\ell$ times those of [@poland2019], as its Table I lists). With the sign $(-1)^\ell$ of reordering $34O \to 43O$, the products differ by $2^{\ell}$, so each coefficient by $2^{\ell/2}$, with the same choice of the sign of $O$. At $\ell = 2$ it agrees with the Ward identity: the square of the stress-tensor coefficient in the structure of [@poland2019] is $\frac{d^2}{(d-1)^2}\Delta_\phi^2/C_T$ for unit-normalized $T$ [@poland2019, Eq. (86)], with $C_T^{\rm free} = d/(d-1)$ [@poland2019, Eq. (87)], i.e. $\frac{3}{2}\Delta_\phi^2\,C_T^{\rm free}/C_T$ in 3d: 4 times the square in this structure, $\frac{3}{8}\Delta_\phi^2\,C_T^{\rm free}/C_T$.'
+  - id: 'reehorst2021'
     symbol: '\lambda'
+    name: '$V_3^\ell$'
     ref: 'reehorst2021, p. 6, fn. 3'
-    description: 'Scalar–scalar–spin-$\ell$ structure, external scalars unit-normalized, with the conformal-block normalization of Reehorst [@reehorst2021, p. 6, fn. 3].'
-    relation: '$\lambda^2 = 2^\ell f^2$ relative to the structure of [@simmonsduffin2016, Eq. (A.16)], so $\lambda = 2f$ at spin 2: the paper notes a factor of 2 relative to the values of [@simmonsduffin2016] from the different block normalization [@reehorst2021, p. 16], and its generalized-free-field coefficients [@reehorst2021, Eq. (2.4)] are $2^\ell$ times those in the normalization of [@simmonsduffin2016].'
-  - id: chang2024-tte
+    form: '\langle\phi_1(P_1)\,\phi_2(P_2)\,O(P_3,Z_3)\rangle = \lambda\,\frac{V_3^{\,\ell}}{P_{12}^{\frac{\Delta_1+\Delta_2-\Delta-\ell}{2}}\,P_{13}^{\frac{\Delta_1+\Delta+\ell-\Delta_2}{2}}\,P_{23}^{\frac{\Delta_2+\Delta+\ell-\Delta_1}{2}}}'
+    description: 'Unit-normalized operators; $V_3 \equiv V_{3,12}$ of [@costa2011, Eq. (4.11)].'
+    derivation: 'The scalar–scalar–spin-$\ell$ structure in the normalization that Reehorst et al. use: that of the review of Poland, Rychkov and Vichi [@reehorst2021, p. 6, fn. 3], whose three-point function is the formula above [@poland2019, Eqs. (23)–(24)], with $h_{ijk} \equiv \Delta_i+\Delta_j-\Delta_k$, a polarization $\zeta$ of $O$, and all operators unit-normalized, $\langle O_{\Delta,\ell}(x_1,\zeta_1)O_{\Delta,\ell}(x_2,\zeta_2)\rangle = [(I_{\mu\nu}(x_{12})\zeta_1^\mu\zeta_2^\nu)^\ell - \text{traces}]/(x_{12}^2)^\Delta$ [@poland2019, Eq. (22)]; its blocks start as $(-\frac{1}{2})^\ell z^{(\Delta-\ell)/2}\bar z^{(\Delta+\ell)/2}$ [@poland2019, Eqs. (52), (54)]. The coefficient is antisymmetric for odd $\ell$, $\lambda_{123} = (-1)^\ell\lambda_{213}$ [@poland2019, Eq. (25)]. In embedding space it is the coefficient of $V_{3,12}^\ell$ [@costa2011, Eqs. (4.10)–(4.12), (4.30), (4.37)]. A coefficient in this structure is $2^{\ell/2}$ times the coefficient of the same three-point function in the block-normalized structure of [@simmonsduffin2016, Eq. (A.16)], twice it at spin 2: the paper notes a factor of 2 relative to the values of [@simmonsduffin2016] from the different block normalization [@reehorst2021, p. 16], and its generalized-free-field coefficients [@reehorst2021, Eq. (2.4)] are $2^\ell$ times those in the normalization of [@simmonsduffin2016] (squares). The same factor follows from the two block normalizations (see the structure of [@simmonsduffin2016, Eq. (A.16)]).'
+  - id: 'chang2024-tte'
     symbol: '\lambda'
+    name: 'parity-even $\langle TT\epsilon\rangle$'
     ref: 'chang2024, Eq. (2.2)'
-    description: 'The parity-even structure of $\langle TT\epsilon\rangle$ as normalized by [@chang2024, Eq. (2.2), p. 5], with the unit-normalized $\hat T = T/\sqrt{c_T}$ [@chang2024, Eq. (2.9)], chosen to match the five-point-bootstrap convention of Poland, Prilepina and Tadić [@poland2023]. A choice of these papers, not a standard normalization: other papers normalize this structure differently.'
+    form: '\langle \hat T(X_1,Z_1)\,\hat T(X_2,Z_2)\,\epsilon(X_3)\rangle = \lambda_{TT\epsilon}\,\frac{1}{X_{12}^{\frac{6-\Delta_\epsilon}{2}+2}\, X_{23}^{\frac{\Delta_\epsilon}{2}}\, X_{31}^{\frac{\Delta_\epsilon}{2}}} \Big( V_1^2 V_2^2 + \frac{4(\Delta_\epsilon-4)}{\Delta_\epsilon+2} H_{12} V_1 V_2 + \frac{2(\Delta_\epsilon^2-6\Delta_\epsilon+6)}{\Delta_\epsilon(\Delta_\epsilon+2)} H_{12}^2 \Big)'
+    description: '$\hat T = T/\sqrt{c_T}$ unit-normalized, $\langle\hat T\hat T\rangle = H_{12}^2/X_{12}^5$ [@chang2024, Eq. (2.9)]; $V_i$, $H_{ij}$ as in [@costa2011].'
+    derivation: 'The parity-even structure of $\langle TT\epsilon\rangle$ as written and normalized by [@chang2024, Eq. (2.2), p. 5], with the unit-normalized stress tensor $\hat T = T/\sqrt{c_T}$, $\langle\hat T\hat T\rangle = H_{12}^2/X_{12}^5$ [@chang2024, Eq. (2.9)], chosen to match the five-point-bootstrap convention of Poland, Prilepina and Tadić [@poland2023]. A choice of these papers, not a standard normalization: other papers normalize this structure differently. The source calls $V_i$ and $H_{ij}$ the standard embedding-space structures of [@costa2011] and writes the points $X_i$; read with the definitions of [@costa2011], $X_{ij} \equiv -2X_i\cdot X_j$ (the $P_{ij}$ of [@costa2011, Eq. (2.9)]), $V_1 \equiv V_{1,23}$, $V_2 \equiv V_{2,31}$ and $H_{12}$ [@costa2011, Eqs. (4.14)–(4.16)], and the unit normalization of $\hat T$ is that of [@costa2011, Eq. (4.9)]. In the $SO(3)_r$ basis it is $-\lambda_{TT\epsilon}\frac{16\Delta_\epsilon}{2+\Delta_\epsilon}\,\mathtt{ScalarParityEven}_{\Delta_\epsilon}$ [@chang2024, Eqs. (2.2)–(2.3)].'
 
-ope_coefficients:
+three_point_functions:
   - operators: ['\sigma', '\sigma', '\epsilon']
     values:
       - structure: scalar
@@ -176,9 +182,10 @@ ope_coefficients:
         method: FS
         refs: [hu2023]
         note: '[@hu2023, Table I, p. 4], written $f_{\epsilon\epsilon\epsilon}\approx 1.5441(23)$, finite-size extrapolation; error = difference between leading- and next-to-leading-order fits [@hu2023, Supplemental Material, Sec. IV]. **Disagrees** with the bootstrap value $1.53244304(58)$ by about $5\times$ its stated error, so the stated error does not cover the extrapolation systematics.'
-  - operators: ['T_{\mu\nu}', 'T_{\mu\nu}', '\epsilon']
+  - operators: ['\epsilon', 'T_{\mu\nu}', 'T_{\mu\nu}']
     values:
       - structure: chang2024-tte
+        order: ['T_{\mu\nu}', 'T_{\mu\nu}', '\epsilon']
         symbol: '\lambda_{TT\epsilon}'
         value: '0.95331513(42)'
         method: CB, non-rigorous error
@@ -247,7 +254,7 @@ ope_coefficients:
         value: '0.32613776(45)'
         method: CB-EFM
         refs: [simmonsduffin2016]
-        note: '[@simmonsduffin2016, Table 2, p. 72], $T_{\mu\nu}$ row. Fixed by the Ward identity in terms of $\Delta_\sigma$ and $C_T$, so it calibrates this normalization: the tabulated values satisfy the Ward-identity relations stated with the structure, with $C_T/C_T^{\rm free} = 0.946538675$. Error not rigorous.'
+        note: '[@simmonsduffin2016, Table 2, p. 72], $T_{\mu\nu}$ row. Fixed by the Ward identity in terms of $\Delta_\sigma$ and $C_T$ ($C_T/C_T^{\rm free} = 0.946538675$). Error not rigorous.'
   - operators: ['\epsilon', '\epsilon', 'T_{\mu\nu}']
     values:
       - structure: sd16
@@ -269,7 +276,7 @@ ope_coefficients:
         value: '0.02107(20)'
         method: CB, rigorous
         refs: [reehorst2021]
-        note: '[@reehorst2021, Table 1, p. 4; @reehorst2021, Eq. (4.5), p. 16], $\Lambda=19$. Rigorous, assuming only two $\mathbb{Z}_2$-even spin-2 operators below 6. Compare $2 f_{\sigma\sigma T''} = 0.021149(8)$.'
+        note: '[@reehorst2021, Table 1, p. 4; @reehorst2021, Eq. (4.5), p. 16], $\Lambda=19$. Rigorous, assuming only two $\mathbb{Z}_2$-even spin-2 operators below 6. Compare $2\times$ the value in the $2^{\ell/2}V_3^\ell$ structure, $2\times 0.0105745(42) = 0.021149(8)$.'
   - operators: ['\epsilon', '\epsilon', "T'_{\\mu\\nu}"]
     values:
       - structure: sd16
@@ -283,7 +290,7 @@ ope_coefficients:
         value: '1.355(30)'
         method: CB, rigorous
         refs: [reehorst2021]
-        note: '[@reehorst2021, Table 1, p. 4; @reehorst2021, Eq. (4.5), p. 16], $\Lambda=19$. Same assumptions. Compare $2 f_{\epsilon\epsilon T''} = 1.3805(10)$, which lies inside this interval.'
+        note: '[@reehorst2021, Table 1, p. 4; @reehorst2021, Eq. (4.5), p. 16], $\Lambda=19$. Same assumptions. Compare $2\times$ the value in the $2^{\ell/2}V_3^\ell$ structure, $2\times 0.69023(49) = 1.3805(10)$, inside this interval.'
   - operators: ['\sigma', '\sigma', 'C_{\mu\nu\rho\sigma}']
     values:
       - structure: sd16
@@ -757,5 +764,21 @@ references:
     arxiv: '2210.13482'
     doi: '10.1103/PhysRevX.13.021009'
     note: 'Table I: the earlier fuzzy-sphere parity-odd scalars $\epsilon^{P-} \approx 10.01$ and $\sigma^{P-} \approx 11.19$ (N = 16), later found to be descendants [@zhou2026].'
+  - key: poland2019
+    title: 'The Conformal Bootstrap: Theory, Numerical Techniques, and Applications'
+    authors: Poland, Rychkov, Vichi
+    year: 2019
+    journal: Rev. Mod. Phys. 91, 015002
+    arxiv: '1805.04405'
+    doi: '10.1103/RevModPhys.91.015002'
+    note: 'Locators refer to arXiv v3. Its conformal-block normalization, Eqs. (52), (54), is the one of [@reehorst2021] (its fn. 3); Table I lists other normalizations, among them that of [@simmonsduffin2016].'
+  - key: costa2011
+    title: Spinning Conformal Correlators
+    authors: Costa, Penedones, Poland, Rychkov
+    year: 2011
+    journal: JHEP 11 (2011) 071
+    arxiv: '1107.3554'
+    doi: '10.1007/JHEP11(2011)071'
+    note: 'The embedding-space notation of the OPE structures: $P_{ij}$, Eq. (2.9); $V_{i,jk}$, $H_{ij}$, Eqs. (4.14)–(4.16). Locators refer to arXiv v3, whose printed page numbers are 1 less than the PDF''s.'
 
 contributors: [nathansbenjamin, davidsd]
